@@ -1,0 +1,30 @@
+<div>
+	<h1>Create a New Product</h1>
+	<form action="" (submit)='submit()'>
+		<label for="title">Title:</label>
+		<input type="text" name="title" id="title"
+		required
+		minlength="4" 
+		[(ngModel)] = 'newProduct.title' 
+		#title = 'ngModel'
+		>
+		<div *ngIf='title.errors'>
+			<p *ngIf='title.errors.required'>Title is required.</p>
+			<p *ngIf='title.errors.minlength'>Title must be at least 4 characters.</p>
+		</div>
+
+		<label for="price">Price:</label>
+		<input type="text" name="price" id="price"
+		required 
+		[(ngModel)] = 'newProduct.price'
+		#price = 'ngModel'
+		>
+		<p *ngIf='price.errors'>Price is required.</p>
+
+		<label for="url">Image Url:</label>
+		<input type="text" name="url" id="url"
+		[(ngModel)] = 'newProduct.url'
+		>
+		<button [disabled]='title.errors || price.errors'>CREATE</button>
+	</form>
+</div>

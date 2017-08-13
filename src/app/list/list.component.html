@@ -1,0 +1,7 @@
+<div *ngFor='let product of products'>
+	<img src="{{product.url}}" alt="{{product.title}}" *ngIf='product.url.length > 0'>
+	<h2>{{product.title}}</h2>
+	<h3>{{product.price}}</h3>
+	<button (click)='edit(product)'>Edit</button>
+	<button (click)='delete(product)'>Delete</button>
+</div>
